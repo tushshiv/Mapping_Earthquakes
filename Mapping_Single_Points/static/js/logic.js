@@ -1,11 +1,16 @@
 console.log("working");
 
 
-var myMap = L.map("mapid", {
-    center: [45.52, -122.67],
-    zoom: 13
-  });
+var myMap = L.map("mapid").setView([34.0522, -118.2437], 14);
   
+  //  Add a marker to the map for Los Angeles, California.
+  //let marker = L.marker([34.0522, -118.2437]).addTo(myMap);
+  
+  //Add Circle to the map of LA
+  L.circle([34.0522, -118.2437], {
+    radius: 300
+ }).addTo(myMap);
+
   // Add a tile layer (the background map image) to our map
   // We use the addTo method to add objects to our map
  L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -16,3 +21,5 @@ var myMap = L.map("mapid", {
     id: "mapbox/streets-v11",
     accessToken: API_KEY
       }).addTo(myMap);
+
+    
